@@ -1,42 +1,34 @@
 
 class Notes {
 	public static void main(String[] args) {
+		
 		//Try Catch
 
-		//Try code block - if at any point it throws an exception we jump to the catch block
+		//Try code block - any code inside, if it throws an exception, we can catch instead of crash
+		
 		int arr[] = new int[2];
 
 		try {
-			//index out of bounds
-			arr[-1] = 5; //as soon as an exception is reached, the rest of the try code is not executed.
-			
-			
-			int a = 10/0;
+			// arr[-1] = 5; //jumps to the catch
+
+			// System.out.println(10/0);
 
 			int num4 = Integer.parseInt("Hello");
 		}
-
-
-		// System.out.println("3"); - code cannot come between try and catch
-		
-		//Catch runs only when an exception is thrown in the try block
-		
-		//catches are checked in order when an exception is thrown, so the bottom ones will not execute if a top one deals with it first
-			
-		catch (ArithmeticException aE) {
-			System.out.println("You tried to divide by zero");
+		// int num2 = 3; //don't put code between try and catch
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Don't go out of bounds");
 		}
-		catch (ArrayIndexOutOfBoundsException aIE){
-			System.out.println(aIE);
-			System.out.println("Haha your code failed");
+		catch (ArithmeticException e) {
+			System.out.println("Divison by 0 is not allowed");
 		}
-		catch (NumberFormatException nFE) {
-			System.out.println("Thats not an int");
+		catch (NumberFormatException e) {
+			System.out.println("Must be an integer");
 		}
-		catch (Exception e) { //works kind of like an else that catches all remaining exceptions
-			System.out.println("Some exception");
+		catch (Exception e) { //Else of exceptions
+			System.out.println(e);
 		}
 
-		System.out.println("My code is still running");
+		System.out.println("Code is still running");
 	}
 }
